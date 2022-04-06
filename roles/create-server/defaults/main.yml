@@ -1,0 +1,13 @@
+---
+server_vmid: 100
+server_hostname: 'default.playground.io'
+server_netif: '{"net0":"name=eth0,ip=dhcp,bridge=vmbr1"}'
+server_ostemplate: 'rockylinux-8-default_20210929_amd64.tar.xz'
+server_memory: 256
+server_swap: 256
+server_disk: 5
+server_cores: 1
+server_nameserver: "10.10.100.1"
+server_searchdomain: "playground.io"
+keyctl_status: false
+unprivileged_status: true

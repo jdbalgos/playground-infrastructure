@@ -1,0 +1,17 @@
+---
+### gateway setup
+gateway_vmid: 2000
+gateway_hostname: gateway.playground.io
+gateway_netif: '{"net0":"name=eth0,ip=192.168.254.11/24,gw=192.168.254.254,bridge=vmbr0","net1":"name=eth1,ip=10.10.100.1/24,gw=127.0.0.1,bridge=vmbr1"}'
+gateway_nameserver: "192.168.254.254"
+### jenkins setup
+jenkins_vmid: 2001
+jenkins_hostname: jenkins.playground.io
+jenkins_memory: 1024
+jenkins_netif: '{"net0":"name=eth0,hwaddr=26:45:49:00:FC:08,ip=dhcp,bridge=vmbr1"}' 
+### docker setup
+docker_vmid: 2002
+docker_hostname: docker.playground.io
+docker_memory: 2048
+docker_netif: '{"net0":"name=eth0,hwaddr=AE:BE:DC:27:D6:90,ip=dhcp,bridge=vmbr1"}' 
+docker_disk: 50

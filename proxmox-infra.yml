@@ -1,0 +1,47 @@
+---
+- name: create LXC container using proxmox api
+  hosts: localhost
+  connection: local
+  tasks:
+# Variable location is located on group_vars/all.yml
+# Template for creating a server via ansible is below:
+#  - name: Template for creating a server
+#    include_role:
+#      name: create-server
+#    vars: ## Server defaults
+#      server_vmid: 100
+#      server_hostname: default.sandbox.io
+#      server_netif: '{"net0":"name=eth0,ip=dhcp,bridge=vmbr0"}' ## add hwaddr for custom MAC address
+#      server_ostemplate: rockylinux-8-default_20210929_amd64.tar.xz
+#      server_memory: 256
+#      server_swap: 256
+#      server_disk: 5
+#      server_cores: 1
+#      keyctl_status: false
+#      unprivileged_status: true
+  - name: create gateway server 
+    include_role:
+      name: create-server
+    vars:
+      server_vmid: "{{ gateway_vmid }}"
+      server_hostname: "{{ gateway_hostname }}"
+      server_netif: "{{ gateway_netif }}"
+      server_nameserver: "{{ gateway_nameserver }}"
+  - name: create jenkins server
+    include_role:
+      name: create-server
+    vars:
+      server_vmid: "{{ jenkins_vmid }}"
+      server_hostname: "{{ jenkins_hostname }}"
+      server_netif: "{{ jenkins_netif }}"
+      server_memory: "{{ jenkins_memory}}"
+  - name: create docker server
+    include_role:
+      name: create-server
+    vars:
+      server_vmid: "{{ docker_vmid }}"
+      server_hostname: "{{ docker_hostname }}"
+      server_netif: "{{ docker_netif }}"
+      server_memory: "{{ docker_memory}}"
+      server_disk: "{{ docker_disk }}"
+...

@@ -1,0 +1,40 @@
+---
+- name: Create server in proxmox
+  community.general.proxmox:
+    vmid: "{{ server_vmid }}"
+    api_host: "{{ pve_hostname }}"
+    api_user: "{{ pve_api_user }}"
+    api_token_id: "{{ pve_token_id }}"
+    api_token_secret: "{{ pve_token_secret }}"
+    hostname: "{{ server_hostname }}"
+    ostemplate: "local:vztmpl/{{ server_ostemplate }}"
+    cores: "{{ server_cores }}"
+    node: "{{ pve_nodename }}"
+    cpus: "1"
+    cpuunits: "1000"
+    storage: "{{ pve_storage_name }}"
+    state: present
+    timeout: 60
+    password: "{{ server_passwd }}"
+    pubkey: "{{ server_pubkey }}"
+    onboot: no
+    swap: "{{ server_swap }}"
+    memory: "{{ server_memory }}"
+    disk: "{{ pve_storage_name }}:{{ server_disk }}"
+    netif: "{{ server_netif }}"
+    unprivileged: "{{ unprivileged_status }}"
+    nameserver: "{{ server_nameserver }}"
+    searchdomain: "{{ server_searchdomain }}"
+- name: start the server
+  community.general.proxmox:
+    vmid: "{{ server_vmid }}"
+    api_host: "{{ pve_hostname }}"
+    api_user: "{{ pve_api_user }}"
+    api_token_id: "{{ pve_token_id }}"
+    api_token_secret: "{{ pve_token_secret }}"
+    state: "started"
+  register: gateway_start
+- name: pause
+  pause:
+    seconds: 30
+  when: gateway_start.changed
