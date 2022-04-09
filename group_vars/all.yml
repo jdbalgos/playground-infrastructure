@@ -9,9 +9,9 @@ jenkins_vmid: 2001
 jenkins_hostname: jenkins.playground.io
 jenkins_memory: 1024
 jenkins_netif: '{"net0":"name=eth0,hwaddr=26:45:49:00:FC:08,ip=dhcp,bridge=vmbr1"}' 
-### docker setup
-docker_vmid: 2002
-docker_hostname: docker.playground.io
-docker_memory: 2048
-docker_netif: '{"net0":"name=eth0,hwaddr=AE:BE:DC:27:D6:90,ip=dhcp,bridge=vmbr1"}' 
-docker_disk: 50
+### build setup
+build_vmid: 2002
+build_hostname: build.playground.io
+build_memory: 1024
+build_netif: '{"net0":"name=eth0,hwaddr=AE:BE:DC:27:D6:90,ip=dhcp,bridge=vmbr1"}' 
+build_disk: 50

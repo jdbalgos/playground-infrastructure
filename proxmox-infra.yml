@@ -35,13 +35,13 @@
       server_hostname: "{{ jenkins_hostname }}"
       server_netif: "{{ jenkins_netif }}"
       server_memory: "{{ jenkins_memory}}"
-  - name: create docker server
+  - name: create build server
     include_role:
       name: create-server
     vars:
-      server_vmid: "{{ docker_vmid }}"
-      server_hostname: "{{ docker_hostname }}"
-      server_netif: "{{ docker_netif }}"
-      server_memory: "{{ docker_memory}}"
-      server_disk: "{{ docker_disk }}"
+      server_vmid: "{{ build_vmid }}"
+      server_hostname: "{{ build_hostname }}"
+      server_netif: "{{ build_netif }}"
+      server_memory: "{{ build_memory}}"
+      server_disk: "{{ build_disk }}"
 ...
