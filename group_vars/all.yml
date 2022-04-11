@@ -15,3 +15,10 @@ build_hostname: build.playground.io
 build_memory: 1024
 build_netif: '{"net0":"name=eth0,hwaddr=AE:BE:DC:27:D6:90,ip=dhcp,bridge=vmbr1"}' 
 build_disk: 50
+### test setup
+test_vmid: 2003
+test_hostname: test.playground.io
+test_memory: 2048
+test_netif: '{"net0":"name=eth0,hwaddr=A2:C7:F2:DF:19:91,ip=dhcp,bridge=vmbr1"}' 
+test_disk: 50
+

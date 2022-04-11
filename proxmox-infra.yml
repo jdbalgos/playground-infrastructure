@@ -44,4 +44,13 @@
       server_netif: "{{ build_netif }}"
       server_memory: "{{ build_memory}}"
       server_disk: "{{ build_disk }}"
+  - name: create test server
+    include_role:
+      name: create-server
+    vars:
+      server_vmid: "{{ test_vmid }}"
+      server_hostname: "{{ test_hostname }}"
+      server_netif: "{{ test_netif }}"
+      server_memory: "{{ test_memory}}"
+      server_disk: "{{ test_disk }}"
 ...

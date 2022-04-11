@@ -25,6 +25,9 @@
     unprivileged: "{{ unprivileged_status }}"
     nameserver: "{{ server_nameserver }}"
     searchdomain: "{{ server_searchdomain }}"
+    features:
+      - "nesting=1"
+      - "keyctl=1"
 - name: start the server
   community.general.proxmox:
     vmid: "{{ server_vmid }}"
